@@ -179,6 +179,7 @@ public abstract class NonBlockingParserBase
             _inputCopy = null;
             _ioContext.releaseReadIOBuffer(b);
         }
+        _byteArrayBuilder = null;
     }
 
     /*
