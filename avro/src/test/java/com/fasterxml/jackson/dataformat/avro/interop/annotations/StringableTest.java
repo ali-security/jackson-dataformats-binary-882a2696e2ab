@@ -88,8 +88,8 @@ public class StringableTest extends InteropTestBase {
     @Test
     public void testBigDecimalWithDoubleSchema() throws IOException {
         // Apache impl can't do coercion
-        assumeTrue(serializeFunctor != ApacheAvroInteropUtil.apacheSerializer);
-        assumeTrue(deserializeFunctor != ApacheAvroInteropUtil.apacheDeserializer);
+        assumeTrue("Apache Avro serializer cannot coerce BigDecimal/BigInteger to a double schema", serializeFunctor != ApacheAvroInteropUtil.apacheSerializer);
+        assumeTrue("Apache Avro deserializer cannot coerce a double schema to BigDecimal/BigInteger", deserializeFunctor != ApacheAvroInteropUtil.apacheDeserializer);
 
         double value = 0.32198154657;
         BigNumberWrapper wrapper = new BigNumberWrapper(new BigDecimal(value), BigInteger.ONE);
@@ -102,8 +102,8 @@ public class StringableTest extends InteropTestBase {
     @Test
     public void testBigIntegerWithDoubleSchema() throws IOException {
         // Apache impl can't do coercion
-        assumeTrue(serializeFunctor != ApacheAvroInteropUtil.apacheSerializer);
-        assumeTrue(deserializeFunctor != ApacheAvroInteropUtil.apacheDeserializer);
+        assumeTrue("Apache Avro serializer cannot coerce BigDecimal/BigInteger to a double schema", serializeFunctor != ApacheAvroInteropUtil.apacheSerializer);
+        assumeTrue("Apache Avro deserializer cannot coerce a double schema to BigDecimal/BigInteger", deserializeFunctor != ApacheAvroInteropUtil.apacheDeserializer);
 
         long value = 948241716844286248L;
         BigNumberWrapper wrapper = new BigNumberWrapper(BigDecimal.ZERO, BigInteger.valueOf(value));
